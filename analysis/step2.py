@@ -55,13 +55,13 @@ def main(input_path, output_path):
     logging.info(f"Processing {len(df)} questions...")
 
     for idx, row in tqdm(df.iterrows(), total=len(df), desc="Asking ChatGPT"):
-        response = ask_chatgpt(
-            prompt=row['question'],
-            client=client,
-            temperature=0.2,
-            system_message="Jesteś urzędnikiem państwowym i twoim zadaniem jest odpowiadanie na pytania dotyczące programu Czyste powietrze"
-        )
-        step1_results.at[idx, 'step1-response'] = response
+        # response = ask_chatgpt(
+        #     prompt=row['question'],
+        #     client=client,
+        #     temperature=0.2,
+        #     system_message="Jesteś urzędnikiem państwowym i twoim zadaniem jest odpowiadanie na pytania dotyczące programu Czyste powietrze"
+        # )
+        step1_results.at[idx, 'step1-response'] = "response"
 
     # Create output directory if needed
     output_dir = os.path.dirname(output_path)
